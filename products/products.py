@@ -11,19 +11,20 @@ class Product:
         # self.cur.execute("DROP TABLE products")
         self.cur.execute(
             """CREATE TABLE IF NOT EXISTS products( 
-                    date DATE PRIMARY KEY,
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    date DATE,
                     category TEXT, 
                     store TEXT, 
                     name TEXT, 
                     price REAL,
                     link TEXT        
-        )"""
+            )"""
         )
 
     def insert(self, product):
         self.cur.execute(
-            """INSERT OR IGNORE INTO products
-                 VALUES(?,?,?,?,?,?)""",
+            """INSERT INTO products(date, category, store, name, price, link)
+         VALUES(?,?,?,?,?,?)""",
             product,
         )
         self.con.commit()
