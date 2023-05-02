@@ -14,7 +14,7 @@ class Product:
                     date DATE PRIMARY KEY,
                     category TEXT, 
                     store TEXT, 
-                    name TEXT. 
+                    name TEXT, 
                     price REAL,
                     link TEXT        
         )"""
