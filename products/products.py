@@ -26,3 +26,8 @@ class Product:
             product,
         )
         self.con.commit()
+
+    def read(self):
+        self.cur.execute("""SELECT * FROM products""")
+        rows = self.cur.fetchall()
+        return rows
