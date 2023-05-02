@@ -23,7 +23,7 @@ class Product:
 
     def insert(self, product):
         self.cur.execute(
-            """INSERT INTO products(date, category, store, name, price, link)
+            """INSERT OR IGNORE INTO products(date, category, store, name, price, link)
          VALUES(?,?,?,?,?,?)""",
             product,
         )
