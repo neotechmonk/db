@@ -10,7 +10,7 @@ def main():
     # Tuple is preferrable as opposed to dictionary - as DB al
     product = (
         today,
-        "T- Shirts",
+        "B- Shirts",
         "Awesome Shirts",
         "Custom logo",
         "24.99",
@@ -18,6 +18,9 @@ def main():
     )
     db = Product()
     db.insert(product)
+
+    for _prod in db.read():
+        print(_prod)
 
 
 if __name__ == "__main__":
