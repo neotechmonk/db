@@ -5,6 +5,7 @@ class Product:
     def __init__(self):
         self.con = sqlite3.connect("test.db")  # create a new DB if one doesnt exit
         self.cur = self.con.cursor()
+        self.create_table()
 
     def create_table(self):
         # self.cur.execute("DROP TABLE products")
