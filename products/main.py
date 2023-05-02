@@ -2,6 +2,7 @@ from products import Product
 
 
 def main():
+    print("in main ")
     p = Product()
 
 
