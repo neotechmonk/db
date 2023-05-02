@@ -21,7 +21,7 @@ class Product:
 
     def insert(self, product):
         self.cur.execute(
-            """INSERT OR INGORE INTO products
+            """INSERT OR IGNORE INTO products
                  VALUES(?,?,?,?,?,?)""",
             product,
         )
