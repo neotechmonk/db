@@ -1,7 +1,9 @@
 from pprint import pprint
 
 from database import Session
-from models import Person
+from models import Person, Thing
+
+from sqlalchemy import func
 
 
 def add_persons(session):
@@ -28,7 +30,8 @@ def findby_name(session, search):
     """
     return session.query(Person).filter(Person.lastname == search).all()
 
-
+def give_thing_to_person(session: Session, person: Person, thing: str):
+    return Thing( description = thing, owner=person)
 if __name__ == "__main__":
     session = Session()
     # add_persons(session)
@@ -37,3 +40,9 @@ if __name__ == "__main__":
     # Search people by the last name
     for x in findby_name(session, 'Smith'): 
         pprint(x)
+
+
+    #lets gift
+    surprise_gift ='Macbook Promax plus plus'
+    rando = session.query(Person).order_by(func.random()).first()
+    print(give_thing_to_person(session=session, person=rando, thing=surprise_gift))

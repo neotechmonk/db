@@ -1,4 +1,4 @@
-from sqlalchemy import CHAR, Column, Integer, String
+from sqlalchemy import CHAR, Column, ForeignKey, Integer, String
 from sqlalchemy.orm import declarative_base
 
 Base = declarative_base()
@@ -22,3 +22,16 @@ class Person(Base):
 
     def __repr__(self):
         return f"Person(ssn='{self.ssn}', firstname='{self.firstname}', lastname='{self.lastname}', gender='{self.gender}', age={self.age})"
+
+class Thing(Base):
+    __tablename__ = "things"
+
+    tid = Column(Integer, primary_key=True)
+    description = Column(String)
+    owner = Column(Integer, ForeignKey("person.ssn"))
+
+    def __init__(self, description, owner):
+        self.description = description
+        self.owner = owner
+    def __repr__(self):
+        return f"Thing(tid={self.tid}, description='{self.description}', owned by {self.owner})"
