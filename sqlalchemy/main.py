@@ -34,10 +34,13 @@ def give_thing_to_person(session: Session, person: Person, thing: str):
     return Thing( description = thing, owner=person)
 if __name__ == "__main__":
     session = Session()
+    #insert
     # add_persons(session)
+
+    #Fetch all persons
     # pprint(get_all_persons(session))
 
-    # Search people by the last name
+    # Search people by  last name
     for x in findby_name(session, 'Smith'): 
         pprint(x)
 
