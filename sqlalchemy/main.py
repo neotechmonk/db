@@ -21,7 +21,10 @@ def get_all_persons(session):
 
 def findby_name(session, search):
     """
-    Ad
+        Eg.  Additional filtering options 
+            Person.last_name.like(%'Smi'%) #similar to SQL like
+            Person.first_name.in_(['Peter','Roudy'])
+            Person.last_name.age > 34
     """
     return session.query(Person).filter(Person.lastname == search).all()
 
