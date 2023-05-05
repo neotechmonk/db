@@ -21,4 +21,4 @@ class Person(Base):
         self.age = age
 
     def __repr__(self):
-        return f"Person(firstname='{self.firstname}', lastname='{self.lastname}', gender='{self.gender}', age={self.age})"
+        return f"Person(ssn='{self.ssn}', firstname='{self.firstname}', lastname='{self.lastname}', gender='{self.gender}', age={self.age})"
