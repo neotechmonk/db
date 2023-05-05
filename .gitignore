@@ -143,6 +143,9 @@ venv.bak/
 .dmypy.json
 dmypy.json
 
+
+extensions.json
+
 # Pyre type checker
 .pyre/
 
@@ -163,3 +166,4 @@ cython_debug/
 # DBs
 *.db
 .DS_Store
+
