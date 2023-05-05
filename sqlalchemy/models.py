@@ -13,7 +13,8 @@ class Person(Base):
     age = Column(Integer)
     gender = Column(CHAR)
 
-    def __init__(self, firstname, lastname, gender, age):
+    def __init__(self, ssn,firstname, lastname, gender, age):
+        self.ssn = ssn
         self.firstname = firstname
         self.lastname = lastname
         self.gender = gender
