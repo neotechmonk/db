@@ -26,7 +26,7 @@ class Person(Base):
 class Thing(Base):
     __tablename__ = "things"
 
-    tid = Column(Integer, primary_key=True)
+    tid = Column(Integer, primary_key=True,autoincrement=True)
     description = Column(String)
     owner = Column(Integer, ForeignKey("person.ssn"))
 

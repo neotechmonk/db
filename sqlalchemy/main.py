@@ -31,7 +31,14 @@ def findby_name(session, search):
     return session.query(Person).filter(Person.lastname == search).all()
 
 def give_thing_to_person(session: Session, person: Person, thing: str):
-    return Thing( description = thing, owner=person)
+    thing = Thing( description = thing, owner=person.ssn)
+    session.add(thing)
+    session.commit()
+    return thing
+
+def find_person_having_thing(session, thing_description)-> Person: 
+    return  session.query(Person, Thing).filter(Person.ssn == Thing.owner).filter(Thing.description == thing_description).first()
+   
 if __name__ == "__main__":
     session = Session()
     #insert
@@ -49,3 +56,7 @@ if __name__ == "__main__":
     surprise_gift ='Macbook Promax plus plus'
     rando = session.query(Person).order_by(func.random()).first()
     print(give_thing_to_person(session=session, person=rando, thing=surprise_gift))
+
+
+    #Find one person that has a thing
+    print(find_person_having_thing(session, surprise_gift))
